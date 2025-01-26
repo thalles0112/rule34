@@ -2,9 +2,9 @@
 import Image from "next/image";
 import { IoMenu } from "react-icons/io5";
 import SideFilter from "../side-filter";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
-import { IoPerson, IoSearch } from 'react-icons/io5'
+import { IoSearch } from 'react-icons/io5'
 import { useRouter } from "next/navigation";
 
 
@@ -21,6 +21,7 @@ export default function Header(){
     }
 
     return (
+        
         <header className="h-16  bg-slate-950 flex items-center">
 
             <div className="max-sm:w-full max-sm:p-4 gap-7 lg:w-10/12 lg:mx-auto flex  items-center justify-between">
@@ -30,23 +31,28 @@ export default function Header(){
                 <Link href={'/'}>
                     <Image src={'/img/header2.png'} width={100} height={56} alt="rule34"/>
                 </Link>
+               
                 <form onSubmit={handleSearch} className="bg-white flex items-center p-2 rounded">
                     <input onChange={e=>{setSearchParam(e.target.value)}} className="outline-none text-black"/>
                     <button>
                         <IoSearch color="#000"/>
                     </button>
                 </form>
+                  
 
             
             </div>
             <div onClick={()=>{setMenuIsOpen(false)}} className={`absolute z-20 top-16 border-b w-96 ${menuIsOpen===null?'opacity-0 -translate-x-full':''} ${menuIsOpen===false?'-translate-x-full opacity-100':'opacity-100'}`}>
+              
                 <SideFilter/>
+                
                 <div onClick={()=>{setMenuIsOpen(false)}} className="fixed w-full h-full bg-black top-0 -z-10 opacity-10">
 
                 </div>
             </div>
             
         </header>
+        
     )
 
 }

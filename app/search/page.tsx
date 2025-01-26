@@ -7,7 +7,7 @@ import { IoArrowForward, IoArrowBack } from 'react-icons/io5'
 import { Suspense, useEffect, useState } from "react";
 
 
-export default function Search() {
+function Search() {
   const [pid, setPid] = useState(useSearchParams().get('pid') || 1)
   const [tag, setTag] = useState(useSearchParams().get('tags') || '0')
   
@@ -33,15 +33,19 @@ export default function Search() {
   }
  
   return (
-    <Suspense className="h-full">
-      <Header/>
+    
+      <div className="h-full">
+        
+        <Header/>
+        
+      
       
       <main className="flex flex-col sm:w-full lg:w-10/12 mx-auto items-center sm:items-start  mb-10">
         <h1 className="title text-center w-full my-4">Search results for "{tag}"</h1>
         
           <div className="flex gap-4">
             <div className="max-lg:hidden">
-            <SideFilter/>
+            
             </div>
 
             <section>
@@ -58,7 +62,16 @@ export default function Search() {
           <input value={pid} type="number" className="bg-transparent outline-none border w-16 text-center mx-auto" onChange={e=>{setPid(e.target.value)}}/>
           <button onClick={navigateForward}><IoArrowForward/></button>
           </div>
-
-    </Suspense>
+          </div>
+          
   );
+}
+
+
+export default function Page(){
+  return(
+    <Suspense>
+      <Search/>
+    </Suspense>
+  )
 }
