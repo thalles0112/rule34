@@ -1,0 +1,11 @@
+.grid-image {
+    width: 100%; /* Faz a imagem preencher o espaço do bloco */
+    height: 100%; /* Garante que ela ocupe toda a altura */
+    object-fit: cover; /* Mantém a proporção e corta o excesso para preencher o bloco */
+    object-position: center; /* Centraliza a imagem */
+}
+
+.grid-height{
+    height: 100%;
+
+}

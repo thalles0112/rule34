@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #ebebeb;
   --foreground: #171717;
+}
+
+*{
+  transition: 0.3s !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +22,28 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+aside{
+  background: var(--background);
+}
+
+.title{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.page-height{
+  height: calc(100% - 64px);
+}
+
+.home-container{
+  height: 630px
+}
+
+
+@media (width < 640px){
+  .xs{
+
+  }
 }
