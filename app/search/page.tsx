@@ -4,7 +4,7 @@ import SideFilter from '../components/ui/side-filter'
 import { useRouter, useSearchParams } from "next/navigation";
 import ListPosts from "../components/ui/list-posts";
 import { IoArrowForward, IoArrowBack } from 'react-icons/io5'
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 
 export default function Search() {
@@ -33,7 +33,7 @@ export default function Search() {
   }
  
   return (
-    <div className="h-full">
+    <Suspense className="h-full">
       <Header/>
       
       <main className="flex flex-col sm:w-full lg:w-10/12 mx-auto items-center sm:items-start  mb-10">
@@ -59,6 +59,6 @@ export default function Search() {
           <button onClick={navigateForward}><IoArrowForward/></button>
           </div>
 
-    </div>
+    </Suspense>
   );
 }
